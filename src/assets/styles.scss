@@ -1,0 +1,99 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'primeicons/primeicons.css';
+@use '@/assets/layout/layout.scss';
+@use '@/assets/demo/demo.scss';
+
+/* Keep the student portal's page styling global and scoped. This avoids
+   Angular's per-component style budget while preventing style leakage. */
+.student-portal {
+    color: var(--text-color);
+    .portal-header, .panel-heading, .row-between { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .portal-header { margin-bottom:1.35rem; }
+    h1 { font-size:1.65rem; font-weight:700; margin:.1rem 0 .25rem; }
+    h2 { font-size:1.05rem; font-weight:650; margin:0; }
+    h3 { font-weight:600; }
+    p { margin:.3rem 0; }
+    .eyebrow { font-size:.7rem; letter-spacing:.13em; color:var(--primary-color); font-weight:700; }
+    .muted, small { color:var(--text-color-secondary); }
+    small { display:block; font-size:.78rem; margin-top:.25rem; }
+    .dot { margin:0 .3rem; }
+    .badge, .status, .priority { border-radius:999px; padding:.3rem .65rem; background:color-mix(in srgb,var(--primary-color) 13%,transparent); color:var(--primary-color); font-size:.72rem; font-weight:650; white-space:nowrap; }
+    .stats-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; margin-bottom:1rem; }
+    .stats-grid.compact { grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:1rem; }
+    .stat, .panel { border:1px solid var(--surface-border); background:var(--surface-card); border-radius:14px; padding:1.1rem; }
+    .stat span, .stat small { display:block; color:var(--text-color-secondary); font-size:.82rem; }
+    .stat strong { display:block; font-size:1.55rem; margin:.45rem 0; font-weight:700; }
+    .content-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .panel { min-width:0; }
+    .panel-heading { margin-bottom:1rem; }
+    .panel-heading p { color:var(--text-color-secondary); font-size:.82rem; }
+    .list-row, .resource-row { display:flex; align-items:center; gap:.8rem; padding:.75rem 0; border-top:1px solid var(--surface-border); }
+    .date-tile { min-width:4.2rem; text-align:center; color:var(--primary-color); font-size:.72rem; font-weight:700; }
+    .date-tile b { display:block; color:var(--text-color); font-size:.82rem; }
+    .grow { flex:1; min-width:0; }
+    .grow b { display:block; }
+    .notice-item, .assignment { padding:.8rem 0; border-top:1px solid var(--surface-border); }
+    .notice-item p { font-size:.86rem; line-height:1.5; margin:.4rem 0; color:var(--text-color-secondary); }
+    .priority { font-size:.65rem; background:var(--surface-ground); color:var(--text-color-secondary); }
+    .priority.urgent { color:#ef4444; }
+    .task-box, .reply-box { background:var(--surface-ground); padding:.8rem; border-radius:10px; margin-top:1rem; display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; }
+    .task-box span { color:var(--text-color-secondary); font-size:.85rem; }
+    .table-wrap { overflow:auto; width:100%; }
+    table { width:100%; border-collapse:collapse; font-size:.84rem; }
+    th, td { text-align:left; padding:.7rem .6rem; border-bottom:1px solid var(--surface-border); white-space:nowrap; }
+    th { color:var(--text-color-secondary); font-weight:600; }
+    td small { white-space:normal; }
+    .empty { color:var(--text-color-secondary); padding:1rem 0; font-size:.88rem; }
+    .subheading { margin:1.25rem 0 .5rem; }
+    .field-label { display:flex; flex-direction:column; gap:.4rem; font-size:.82rem; font-weight:550; margin:.75rem 0; }
+    .field { width:100%; border:1px solid var(--surface-border); background:var(--surface-ground); color:var(--text-color); border-radius:9px; padding:.65rem .75rem; outline-color:var(--primary-color); }
+    .primary-button, .secondary-button { border:0; border-radius:8px; padding:.55rem .8rem; background:var(--primary-color); color:var(--primary-contrast-color,#fff); font-size:.8rem; font-weight:600; cursor:pointer; white-space:nowrap; text-decoration:none; display:inline-block; }
+    .secondary-button { background:var(--surface-ground); border:1px solid var(--surface-border); color:var(--text-color); }
+    .primary-button:disabled { opacity:.55; cursor:not-allowed; }
+    .link-button { border:0; background:none; color:var(--primary-color); font-size:.8rem; cursor:pointer; white-space:nowrap; }
+    .status.approved { color:#16a34a; background:#16a34a1a; }
+    .status.rejected { color:#dc2626; background:#dc26261a; }
+    .meter { display:inline-block; width:75px; height:6px; border-radius:10px; background:var(--surface-ground); margin-right:.5rem; vertical-align:middle; }
+    .meter i { display:block; height:100%; border-radius:10px; background:var(--primary-color); }
+    .assignment { padding:.9rem 0; }
+    .response { margin:.7rem 0; min-height:80px; }
+    .file-label { font-size:.75rem; color:var(--text-color-secondary); }
+    .file-label input { display:block; max-width:220px; margin-top:.35rem; font-size:.72rem; }
+    .submission-copy { color:var(--text-color-secondary); font-size:.82rem; overflow-wrap:anywhere; }
+    .resource-icon { font-size:1.3rem; color:var(--primary-color); }
+    .fee-card { padding:1rem 0; border-top:1px solid var(--surface-border); }
+    .amount { font-weight:650; }
+    .attendance-details { display:flex; gap:.8rem; flex-wrap:wrap; padding-top:.8rem; font-size:.82rem; }
+    .attendance-details span { padding:.4rem .55rem; background:var(--surface-ground); border-radius:7px; }
+    .form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.2rem 1rem; }
+    .full { grid-column:1/-1; }
+    .notice-banner { padding:.75rem 1rem; border-radius:9px; background:#16a34a1a; color:#16a34a; margin-bottom:1rem; font-size:.85rem; }
+    .profile-panel { max-width:900px; }
+    @media(max-width:900px) { .stats-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:700px) { .content-grid { grid-template-columns:1fr; } .portal-header { align-items:flex-start; } .badge { display:none; } .form-grid { grid-template-columns:1fr; } .full { grid-column:auto; } .stats-grid.compact { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+}
+
+/* Print: hide the application chrome so only the page content (e.g. a result
+   sheet or transcript) is printed. Feature pages additionally hide their own
+   toolbars/tabs via the `.no-print` class. */
+@media print {
+    .layout-topbar,
+    .layout-sidebar,
+    .layout-footer,
+    .layout-mask {
+        display: none !important;
+    }
+
+    .layout-main-container {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .layout-main {
+        padding: 0 !important;
+    }
+
+    body {
+        background: #fff !important;
+    }
+}
